@@ -1,0 +1,9 @@
+<li class="list-group-item d-flex justify-content-between my-1">
+    <!-- <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="save-info">
+        <label class="custom-control-label" for="save-info">{{todo.title}}</label>
+    </div> -->
+    <input (change)="onToggle(todo)" type="checkbox" [checked]="setCheck()" />
+    <p [ngClass]="setClasses()">{{todo.title}}</p>
+    <button type="button" (click)="onDelete(todo)" class="btn btn-outline-danger btn-sm font-weight-bold"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+</li>
