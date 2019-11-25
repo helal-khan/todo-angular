@@ -36,11 +36,9 @@ export class TodoItemComponent implements OnInit {
     this.todoService.updateTodo(this.todo).subscribe(todo => {
       console.log(todo);
     });
-
   }
 
   onDelete(todo){
     this.deleteTodo.emit(todo);
   }
-
 }

@@ -1,5 +1,12 @@
 # TodoApp
 
+## Feature Completion
+1. Add todo
+2. Delete todo
+3. Can modify as completed todo
+4. Filter todo
+5. Routing
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.7.
 
 ## Development server

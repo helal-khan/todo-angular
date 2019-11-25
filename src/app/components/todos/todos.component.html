@@ -1,14 +1,18 @@
-<app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
-<div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="list-group">
-                <app-todo-item 
-                    *ngFor="let todo of todos" 
-                    [todo]="todo"
-                    (deleteTodo)="deleteTodo($event)">
-                </app-todo-item>
-            </ul>
-        </div>
+<app-add-todo (addTodo)="addTodo($event)" [resetEvent]="resetBtnLoader.asObservable()"></app-add-todo>
+<div class="mb-5 text-center" *ngIf="mainLoader">
+    <div class="spinner-grow text-primary mb-5" style="width: 15rem; height: 15rem;" role="status">
+        <span class="sr-only">Loading...</span>
     </div>
+</div>
+<div class="my-3 p-3 bg-white rounded shadow-sm" *ngIf="loadContent">
+    <div class="border-bottom border-gray pb-2 mb-0">
+        <p class="d-inline">List of todos</p>
+        - <small class="text-right mt-3">
+            <a routerLink="/home" class="mr-2">All</a>
+            <a [routerLink]="['']" [queryParams]="{ completed: false }" class="mr-2">Active</a>
+            <a [routerLink]="['']" [queryParams]="{ completed: true }" class="mr-2">Completed</a>
+        </small>
+    </div>
+    <app-todo-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)">
+    </app-todo-item>
 </div>

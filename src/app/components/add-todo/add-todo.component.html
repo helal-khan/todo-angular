@@ -1,14 +1,15 @@
-<div class="container mb-2">
-    <div class="row">
-        <div class="col-md-12">
-            <form class="card p-2"  (ngSubmit)="onSubmit()">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="title" [(ngModel)]="title" placeholder="Add todo..." >
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary font-weight-bold">Add TODO</button>
-                    </div>
-                </div>
-            </form>
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <form (ngSubmit)="onSubmit()">
+        <div class="input-group">
+            <input type="text" class="form-control" name="title" [(ngModel)]="title" (keyup)="writeTodo()"
+                placeholder="Add todo...">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary" [disabled]="buttonDisabled">
+                    <span *ngIf="btnLoader" class="spinner-grow spinner-grow-sm" role="status"
+                        aria-hidden="true"></span>
+                    {{btnText}}
+                </button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>

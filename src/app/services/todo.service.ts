@@ -3,11 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Todo } from '../models/Todo';
 import { Observable } from 'rxjs';
 
-
 const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
 
 @Injectable({
@@ -21,7 +18,7 @@ export class TodoService {
 
   //Get All
   getTodos():Observable<Todo[]>{
-    const LIMIT:string = "?_limit=5";
+    const LIMIT:string = "?_limit=8";
     return this.http.get<Todo[]>(`${this.TODO_BASE_URL}${LIMIT}`);
   }
 
@@ -41,5 +38,4 @@ export class TodoService {
     const url = `${this.TODO_BASE_URL}/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
-
 }
